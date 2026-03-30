@@ -67,7 +67,7 @@ body {
             text-decoration: none;
             color: variables.$color-blanco;
             font-weight: 500;
-            &:hover { color: variables.$color-primario; }
+            &:hover { color: variables.$color-primario-hover; }
         }
     }
 }
@@ -75,12 +75,20 @@ body {
 // === HERO ===
 .hero {
     @include variables.flex-center;
-    background-image: url("https://www.freepik.es/imagen-ia-gratis/tableta-tecnologia-moderna-escritorio-madera-interior-ia-generativa_41350650.htm#fromView=search&page=1&position=2&uuid=c52b27c3-3e00-4bf8-82bf-bfd096160f60&query=imagen+hermosa+sobre+una+maqueta+de+servicios+digitales");
+    flex-direction: column;
+
+    // RUTA LOCAL: 
+    // Si tu CSS está en dist/ y la imagen en assets/img/
+    // el "../" sirve para salir de la carpeta dist y entrar a assets
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+                      url('../src/public/Hero-image.jpg'); 
+    
     background-size: cover;
     background-position: center;
     color: variables.$color-blanco;
     text-align: center;
     padding: 4rem 1rem;
+    min-height: 60vh;
 
     &__content {
         max-width: 600px;
@@ -88,7 +96,6 @@ body {
         p { margin-bottom: 1.5rem; font-size: 1.1rem; }
     }
 }
-
 // === SERVICIOS ===
 .servicios {
     padding: 4rem 5%;
