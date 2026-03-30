@@ -1,8 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-
-    /* ============================================================
-       INTERACCIÓN DINÁMICA DEL DOM 1 & 2: FILTRADO Y CONTADOR
-       ============================================================ */
+    
     const botonesFiltro = document.querySelectorAll('.btn-filtro');
     const tarjetas = document.querySelectorAll('.tarjeta');
     const contadorTexto = document.getElementById('contador-servicios');
@@ -31,9 +28,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    /* ============================================================
-       VALIDACIÓN DEL FORMULARIO
-       ============================================================ */
     const formulario = document.getElementById('formulario-contacto');
 
     if (formulario) {
@@ -104,22 +98,24 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
-});
 
-const navToggle = document.querySelector(".nav-toggle");
-const navMenu = document.querySelector(".nav");
-const navLinks = document.querySelectorAll(".nav a");
+    const navToggle = document.querySelector(".nav-toggle");
+    const navMenu = document.querySelector(".nav");
+    const navLinks = document.querySelectorAll(".nav a");
 
-// Abrir/Cerrar menú
-navToggle.addEventListener("click", () => {
-    navToggle.classList.toggle("active");
-    navMenu.classList.toggle("active");
-});
+    // Abrir/Cerrar menú
+    if (navToggle && navMenu) {
+        navToggle.addEventListener("click", () => {
+            navToggle.classList.toggle("active");
+            navMenu.classList.toggle("active");
+        });
 
-// Cerrar menú al hacer click en un enlace (importante para SPAs)
-navLinks.forEach(link => {
-    link.addEventListener("click", () => {
-        navToggle.classList.remove("active");
-        navMenu.classList.remove("active");
-    });
+        // Cerrar menú al hacer click en un enlace
+        navLinks.forEach(link => {
+            link.addEventListener("click", () => {
+                navToggle.classList.remove("active");
+                navMenu.classList.remove("active");
+            });
+        });
+    }
 });

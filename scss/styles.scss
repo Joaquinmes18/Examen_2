@@ -1,8 +1,6 @@
-
 @use 'sass:color';
 @use '_variables';
 
-// === RESET ===
 * {
     margin: 0;
     padding: 0;
@@ -40,7 +38,7 @@ body {
 }
 .w-100 { width: 100%; }
 
-// === HEADER ===
+
 .header {
     background-color: variables.$color-primario;
     padding: 1rem 5%;
@@ -58,6 +56,15 @@ body {
         color: variables.$color-blanco;
     }
 
+    .nav-toggle {
+        display: none; 
+        background: none;
+        border: none;
+        font-size: 2rem;
+        color: variables.$color-blanco;
+        cursor: pointer;
+    }
+
     .nav ul {
         list-style: none;
         display: flex;
@@ -71,15 +78,10 @@ body {
         }
     }
 }
-
-// === HERO ===
 .hero {
     @include variables.flex-center;
     flex-direction: column;
 
-    // RUTA LOCAL: 
-    // Si tu CSS está en dist/ y la imagen en assets/img/
-    // el "../" sirve para salir de la carpeta dist y entrar a assets
     background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
                       url('../src/public/Hero-image.jpg'); 
     
@@ -96,7 +98,7 @@ body {
         p { margin-bottom: 1.5rem; font-size: 1.1rem; }
     }
 }
-// === SERVICIOS ===
+
 .servicios {
     padding: 4rem 5%;
     max-width: 1200px;
@@ -134,10 +136,9 @@ body {
         .contador { color: variables.$color-secundario; font-weight: bold; }
     }
 
-    // GRID RESPONSIVE REAL
     .grid-servicios {
         display: grid;
-        grid-template-columns: 1fr; // Móvil: 1 columna
+        grid-template-columns: 1fr;
         gap: 2rem;
 
         .tarjeta {
@@ -158,7 +159,6 @@ body {
     }
 }
 
-// === CONTACTO ===
 .contacto {
     background-color: variables.$color-blanco;
     padding: 4rem 5%;
@@ -188,7 +188,7 @@ body {
                 color: variables.$color-error;
                 font-size: 0.85rem;
                 margin-top: 0.3rem;
-                display: none; // Oculto por defecto
+                display: none;
                 &.active { display: block; }
             }
         }
@@ -200,13 +200,13 @@ body {
             text-align: center;
             border-radius: variables.$border-radius;
             margin-top: 1rem;
-            display: none; // Oculto por defecto
+            display: none; 
             &.active { display: block; }
         }
     }
 }
 
-// === FOOTER ===
+
 .footer {
     background-color: variables.$color-texto;
     color: variables.$color-blanco;
@@ -214,15 +214,42 @@ body {
     padding: 1.5rem;
 }
 
-// === MEDIA QUERIES (BREAKPOINTS) ===
-// Tablet: 2 Columnas
+
+@media (max-width: 767px) {
+    .header {
+        flex-wrap: wrap; 
+    }
+    
+    .header .nav-toggle {
+        display: block; 
+    }
+
+    .header .nav {
+        width: 100%;
+        display: none; 
+        
+        &.active {
+            display: block; 
+        }
+
+        ul {
+            flex-direction: column;
+            background-color: variables.$color-primario;
+            text-align: center;
+            padding: 1.5rem 0;
+            gap: 1.5rem;
+            margin-top: 1rem;
+            border-radius: variables.$border-radius;
+        }
+    }
+}
+
 @media (min-width: 768px) {
     .servicios .grid-servicios {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
-// Desktop: 3 Columnas
 @media (min-width: 1024px) {
     .servicios .grid-servicios {
         grid-template-columns: repeat(3, 1fr);

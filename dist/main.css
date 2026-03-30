@@ -55,6 +55,14 @@ body {
   font-weight: bold;
   color: #ffffff;
 }
+.header .nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #ffffff;
+  cursor: pointer;
+}
 .header .nav ul {
   list-style: none;
   display: flex;
@@ -228,6 +236,30 @@ body {
   padding: 1.5rem;
 }
 
+@media (max-width: 767px) {
+  .header {
+    flex-wrap: wrap;
+  }
+  .header .nav-toggle {
+    display: block;
+  }
+  .header .nav {
+    width: 100%;
+    display: none;
+  }
+  .header .nav.active {
+    display: block;
+  }
+  .header .nav ul {
+    flex-direction: column;
+    background-color: #8d775f;
+    text-align: center;
+    padding: 1.5rem 0;
+    gap: 1.5rem;
+    margin-top: 1rem;
+    border-radius: 8px;
+  }
+}
 @media (min-width: 768px) {
   .servicios .grid-servicios {
     grid-template-columns: repeat(2, 1fr);
