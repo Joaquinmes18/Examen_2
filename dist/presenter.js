@@ -105,3 +105,21 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+const navToggle = document.querySelector(".nav-toggle");
+const navMenu = document.querySelector(".nav");
+const navLinks = document.querySelectorAll(".nav a");
+
+// Abrir/Cerrar menú
+navToggle.addEventListener("click", () => {
+    navToggle.classList.toggle("active");
+    navMenu.classList.toggle("active");
+});
+
+// Cerrar menú al hacer click en un enlace (importante para SPAs)
+navLinks.forEach(link => {
+    link.addEventListener("click", () => {
+        navToggle.classList.remove("active");
+        navMenu.classList.remove("active");
+    });
+});
