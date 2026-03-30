@@ -1,0 +1,223 @@
+
+@use 'sass:color';
+@use '_variables';
+
+// === RESET ===
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: variables.$fuente-base;
+    background-color: variables.$color-fondo;
+    color: variables.$color-texto;
+    line-height: 1.6;
+}
+
+// === COMPONENTES GLOBALES ===
+.btn {
+    padding: 0.6rem 1.5rem;
+    border-radius: variables.$border-radius;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s ease;
+
+    &-primary {
+        background-color: variables.$color-primario;
+        color: variables.$color-blanco;
+        &:hover { background-color: variables.$color-primario-hover; }
+    }
+    
+    &-secondary {
+        background-color: variables.$color-secundario;
+        color: variables.$color-blanco;
+        width: 100%;
+        &:hover { background-color: color.adjust(variables.$color-secundario, $lightness: -10%); }
+    }
+}
+.w-100 { width: 100%; }
+
+// === HEADER ===
+.header {
+    background-color: variables.$color-primario;
+    padding: 1rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+
+    .logo {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: variables.$color-blanco;
+    }
+
+    .nav ul {
+        list-style: none;
+        display: flex;
+        gap: 1.5rem;
+
+        a {
+            text-decoration: none;
+            color: variables.$color-blanco;
+            font-weight: 500;
+            &:hover { color: variables.$color-primario; }
+        }
+    }
+}
+
+// === HERO ===
+.hero {
+    @include variables.flex-center;
+    background-image: url("https://www.freepik.es/imagen-ia-gratis/tableta-tecnologia-moderna-escritorio-madera-interior-ia-generativa_41350650.htm#fromView=search&page=1&position=2&uuid=c52b27c3-3e00-4bf8-82bf-bfd096160f60&query=imagen+hermosa+sobre+una+maqueta+de+servicios+digitales");
+    background-size: cover;
+    background-position: center;
+    color: variables.$color-blanco;
+    text-align: center;
+    padding: 4rem 1rem;
+
+    &__content {
+        max-width: 600px;
+        h1 { font-size: 2.5rem; margin-bottom: 1rem; }
+        p { margin-bottom: 1.5rem; font-size: 1.1rem; }
+    }
+}
+
+// === SERVICIOS ===
+.servicios {
+    padding: 4rem 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+
+    h2 { text-align: center; margin-bottom: 2rem; font-size: 2rem; }
+
+    .filtros-container {
+        text-align: center;
+        margin-bottom: 2rem;
+
+        .filtros {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 1rem;
+
+            .btn-filtro {
+                padding: 0.5rem 1rem;
+                background: transparent;
+                border: 2px solid variables.$color-primario;
+                color: variables.$color-primario;
+                border-radius: 20px;
+                cursor: pointer;
+                font-weight: bold;
+
+                &.active, &:hover {
+                    background: variables.$color-primario;
+                    color: variables.$color-blanco;
+                }
+            }
+        }
+        
+        .contador { color: variables.$color-secundario; font-weight: bold; }
+    }
+
+    // GRID RESPONSIVE REAL
+    .grid-servicios {
+        display: grid;
+        grid-template-columns: 1fr; // Móvil: 1 columna
+        gap: 2rem;
+
+        .tarjeta {
+            background: variables.$color-blanco;
+            padding: 1.5rem;
+            border-radius: variables.$border-radius;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border-top: 4px solid variables.$color-primario;
+            transition: transform 0.3s ease;
+
+            &:hover { transform: translateY(-5px); }
+
+            h3 { color: variables.$color-primario; margin-bottom: 0.5rem; }
+            .categoria { font-size: 0.85rem; color: variables.$color-secundario; text-transform: uppercase; margin-bottom: 1rem; }
+            .descripcion { margin-bottom: 1.5rem; }
+            .precio { font-weight: bold; margin-bottom: 1rem; font-size: 1.2rem; }
+        }
+    }
+}
+
+// === CONTACTO ===
+.contacto {
+    background-color: variables.$color-blanco;
+    padding: 4rem 5%;
+
+    h2 { text-align: center; margin-bottom: 2rem; font-size: 2rem; }
+
+    &__contenedor {
+        max-width: 500px;
+        margin: 0 auto;
+
+        .form-group {
+            margin-bottom: 1.2rem;
+            display: flex;
+            flex-direction: column;
+
+            label { font-weight: bold; margin-bottom: 0.3rem; }
+
+            input, select, textarea {
+                padding: 0.8rem;
+                border: 1px solid #cbd5e1;
+                border-radius: variables.$border-radius;
+                font-family: inherit;
+                &:focus { outline: none; border-color: variables.$color-primario; }
+            }
+
+            .error {
+                color: variables.$color-error;
+                font-size: 0.85rem;
+                margin-top: 0.3rem;
+                display: none; // Oculto por defecto
+                &.active { display: block; }
+            }
+        }
+
+        .success-msg {
+            background-color: variables.$color-exito;
+            color: variables.$color-blanco;
+            padding: 1rem;
+            text-align: center;
+            border-radius: variables.$border-radius;
+            margin-top: 1rem;
+            display: none; // Oculto por defecto
+            &.active { display: block; }
+        }
+    }
+}
+
+// === FOOTER ===
+.footer {
+    background-color: variables.$color-texto;
+    color: variables.$color-blanco;
+    text-align: center;
+    padding: 1.5rem;
+}
+
+// === MEDIA QUERIES (BREAKPOINTS) ===
+// Tablet: 2 Columnas
+@media (min-width: 768px) {
+    .servicios .grid-servicios {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+// Desktop: 3 Columnas
+@media (min-width: 1024px) {
+    .servicios .grid-servicios {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}

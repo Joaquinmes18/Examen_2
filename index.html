@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechSolutions - Servicios Digitales</title>
+    <link rel="stylesheet" href="dist/main.css">
+</head>
+<body>
+    <header class="header">
+        <div class="logo">TechSolutions</div>
+        <nav class="nav">
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="inicio" class="hero">
+            <div class="hero__content">
+                <h1>Impulsamos tu transformación digital</h1>
+                <p>Soluciones tecnológicas a medida para hacer crecer tu negocio.</p>
+                <a href="#servicios" class="btn btn-primary">Ver Servicios</a>
+            </div>
+        </section>
+
+        <section id="servicios" class="servicios">
+            <h2>Catálogo de Servicios</h2>
+            
+            <div class="filtros-container">
+                <div class="filtros">
+                    <button class="btn-filtro active" data-filter="todos">Todos</button>
+                    <button class="btn-filtro" data-filter="web">Desarrollo Web</button>
+                    <button class="btn-filtro" data-filter="uiux">Diseño UI/UX</button>
+                    <button class="btn-filtro" data-filter="marketing">Marketing Digital</button>
+                </div>
+                <p class="contador" id="contador-servicios">Mostrando 6 servicios</p>
+            </div>
+
+            <div class="grid-servicios" id="grid-servicios">
+                <article class="tarjeta" data-category="web">
+                    <h3>Página Web Corporativa</h3>
+                    <p class="categoria">Desarrollo Web</p>
+                    <p class="descripcion">Sitios web a medida, rápidos y optimizados para SEO.</p>
+                    <p class="precio">Desde $500</p>
+                    <button class="btn btn-secondary">Solicitar</button>
+                </article>
+
+                <article class="tarjeta" data-category="uiux">
+                    <h3>Diseño de Interfaces</h3>
+                    <p class="categoria">Diseño UI/UX</p>
+                    <p class="descripcion">Prototipado y diseño visual atractivo y centrado en el usuario.</p>
+                    <p class="precio">Desde $300</p>
+                    <button class="btn btn-secondary">Solicitar</button>
+                </article>
+
+                <article class="tarjeta" data-category="marketing">
+                    <h3>Gestión de Redes</h3>
+                    <p class="categoria">Marketing Digital</p>
+                    <p class="descripcion">Estrategias de contenido y pauta publicitaria en redes.</p>
+                    <p class="precio">Desde $200/mes</p>
+                    <button class="btn btn-secondary">Solicitar</button>
+                </article>
+
+                <article class="tarjeta" data-category="web">
+                    <h3>E-commerce</h3>
+                    <p class="categoria">Desarrollo Web</p>
+                    <p class="descripcion">Tiendas virtuales completas con pasarelas de pago.</p>
+                    <p class="precio">Desde $800</p>
+                    <button class="btn btn-secondary">Solicitar</button>
+                </article>
+
+                <article class="tarjeta" data-category="uiux">
+                    <h3>Auditoría UX</h3>
+                    <p class="categoria">Diseño UI/UX</p>
+                    <p class="descripcion">Análisis de usabilidad para mejorar la conversión de tu app.</p>
+                    <p class="precio">Desde $250</p>
+                    <button class="btn btn-secondary">Solicitar</button>
+                </article>
+
+                <article class="tarjeta" data-category="marketing">
+                    <h3>Campañas Google Ads</h3>
+                    <p class="categoria">Marketing Digital</p>
+                    <p class="descripcion">Campañas SEM para captación de leads cualificados.</p>
+                    <p class="precio">Desde $350/mes</p>
+                    <button class="btn btn-secondary">Solicitar</button>
+                </article>
+            </div>
+        </section>
+
+        <section id="contacto" class="contacto">
+            <h2>Contáctanos</h2>
+            <div class="contacto__contenedor">
+                <form id="formulario-contacto" novalidate>
+                    <div class="form-group">
+                        <label for="nombre">Nombre Completo</label>
+                        <input type="text" id="nombre" placeholder="Ej. Juan Pérez">
+                        <span class="error" id="error-nombre"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Correo Electrónico</label>
+                        <input type="email" id="email" placeholder="correo@ejemplo.com">
+                        <span class="error" id="error-email"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="servicio">Servicio de Interés</label>
+                        <select id="servicio">
+                            <option value="">Selecciona una opción...</option>
+                            <option value="web">Desarrollo Web</option>
+                            <option value="uiux">Diseño UI/UX</option>
+                            <option value="marketing">Marketing Digital</option>
+                        </select>
+                        <span class="error" id="error-servicio"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="mensaje">Mensaje</label>
+                        <textarea id="mensaje" rows="4" placeholder="Cuéntanos sobre tu proyecto..."></textarea>
+                        <span class="error" id="error-mensaje"></span>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary w-100">Enviar Solicitud</button>
+                    <div id="mensaje-exito" class="success-msg">¡Solicitud enviada con éxito!</div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2026 TechSolutions. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

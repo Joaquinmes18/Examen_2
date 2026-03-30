@@ -1,0 +1,19 @@
+
+// === VARIABLES ===
+$color-primario: #dda15e;
+$color-primario-hover: #bc6c25;
+$color-secundario: #283618;
+$color-fondo: #f8fafc;
+$color-texto: #1e293b;
+$color-blanco: #ffffff;
+$color-error: #ef4444;
+$color-exito: #10b981;
+$fuente-base: 'Segoe UI', system-ui, sans-serif;
+$border-radius: 8px;
+
+// === MIXINS ===
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
